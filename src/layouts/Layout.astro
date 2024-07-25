@@ -1,0 +1,72 @@
+---
+import MetaGlobal from "../metadata/MetaGlobal.astro";
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/navigation/Header.astro";
+
+/* import "aos/dist/aos.css"; */
+import "@fontsource/londrina-solid/100.css";
+import "@fontsource/londrina-solid/300.css";
+import "@fontsource/londrina-solid/400.css";
+import "@fontsource/londrina-solid/900.css";
+
+import "@fontsource-variable/gluten";
+import "@fontsource-variable/rubik";
+import "@fontsource-variable/inter-tight";
+
+import "@fontsource-variable/unbounded";
+import "../assets/styles/global.css";
+import SideMenu from "../components/navigation/SideMenu.astro";
+
+interface Props {
+  title: string;
+}
+
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <!-- Meta -->
+    <MetaGlobal/>
+    <ViewTransitions />
+    <!-- Title -->
+    <title>{title}</title>
+  </head>
+
+  <body class="">
+    <!-- Navigation -->
+    <Header />
+
+    <SideMenu className="z-[70]" />
+    <!-- Main Content -->
+    <main class="">
+      <slot />
+    </main>
+    
+    <!-- Scripts -->
+    <script>
+      const toggleBtn = document.getElementById(
+        "toggleMenu"
+      ) as HTMLInputElement;
+      const sideMenu = document.getElementById("side-menu");
+      const sideButtons = document.querySelectorAll(".side-menu-btn");
+
+      toggleBtn.addEventListener("input", () => {
+        sideMenu.classList.toggle("open");
+      });
+
+      sideButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sideMenu.classList.toggle("open");
+        });
+      });
+    </script>
+<!--     <script src="../assets/js/aosInit.js">
+    </script> -->
+
+  </body>
+
+</html>

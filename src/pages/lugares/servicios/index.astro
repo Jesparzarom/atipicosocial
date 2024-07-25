@@ -1,0 +1,9 @@
+---
+import PlacesGrid from "../../../components/react/PlacesListGrid"
+import PlacesLayout from "../../../layouts/PlacesLayout.astro"
+---
+<PlacesLayout title="Lugares de servicios" bannerTitle="De servicios" page="servicios" isIndex={false}>
+<PlacesGrid client:load placesIndexView={false} category="servicios"/>
+</PlacesLayout>
+
+

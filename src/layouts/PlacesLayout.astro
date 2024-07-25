@@ -1,0 +1,28 @@
+---
+import Layout from "./Layout.astro";
+import { getCategories } from "../assets/js/placeFilter";
+
+interface Props {
+  title?: string;
+  bannerTitle?:string;
+  isIndex?:boolean;
+  page?:string;
+}
+
+const { title, bannerTitle, isIndex, page } = Astro.props;
+---
+
+<Layout title={ title || "Lugares | Atípico Social"}>
+  <section class="px-5 py-2" id='places-page' >
+    <div class="w-full flex-col  items-center px-5 bg-gradient-to-tr from-violet-500 to-teal-400 rounded-lg py-10">
+        <div class="">
+            <span class="font-bold tracking-tighter">{"Lugares"}</span>
+            <h1 class="font-bold text-4xl md:text-6xl text-white tracking-tighter" data-aos="fade" data-aos-duration={1000}> {bannerTitle}</h1>
+        </div>
+    </div>
+ </section>
+ <section class="px-5">
+    <slot />
+  </section>
+  <script src="../assets/js/aosRefresh.js" ></script>
+</Layout>

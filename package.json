@@ -1,0 +1,36 @@
+{
+  "name": "atipicosocial",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/gluten": "^5.0.20",
+    "@fontsource-variable/inter-tight": "^5.0.21",
+    "@fontsource-variable/rubik": "^5.0.22",
+    "@fontsource-variable/unbounded": "^5.0.20",
+    "@fontsource/londrina-solid": "^5.0.19",
+    "@fontsource/opendyslexic": "^5.0.11",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "aos": "^2.3.4",
+    "astro": "^4.11.5",
+    "framer-motion": "^12.0.0-alpha.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1",
+    "sal.js": "^0.8.5",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "daisyui": "^4.12.10"
+  }
+}

@@ -1,0 +1,66 @@
+---
+import Logo from "../generics/Logo.astro";
+import Button from "../generics/Button.astro";
+import {
+  MdMap,
+  MdHome,
+  MdCategory,
+  MdQuestionMark,
+  MdMenu,
+  MdClose,
+  MdContactPage
+} from "react-icons/md";
+---
+
+<header class="w-full bg-base-100 shadow-md flex flex-col lg:flex-row items-center justify-center sticky top-0 z-[99] lg:px-10">
+  
+  <section class="w-full navbar-start">
+
+    <div class="absolute lg:hidden top-6 left-4">
+      <label class="btn btn-ghost swap swap-rotate" for="toggleMenu">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" id="toggleMenu" />
+        <!-- hamburger icon -->
+        <MdMenu className="swap-off text-4xl" />
+        <!-- close icon -->
+        <MdClose className="swap-on text-4xl" />
+      </label>
+    </div>
+
+    <nav class="w-full hidden lg:block">
+      <ul class="menu menu-horizontal px-1 text-lg">
+        <li>
+          <a href="/#"><MdHome aria-label="icono de casa" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Inicio</a>
+        </li>
+        <li>
+          <a href="/#atipico-social">
+            <MdCategory aria-label="icono de figuras geométricas" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Atípico Social</a
+          >
+        </li>
+        <li>
+          <a href="/#preguntas-frecuentes"
+            ><MdQuestionMark aria-label="icono de interrogación" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Preguntas</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </section>
+  
+  <section transition:persist class="navbar-center">
+    <Button path="/" type="none" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000">
+      <Logo className="w-24" width={800} height={800} />
+    </Button>
+  </section>
+
+  <section class="w-full justify-center navbar-end" >
+    <div  class="w-full py-5 px-5 hidden lg:flex flex-row items-center justify-end gap-2">
+      <Button path="/lugares" type="btn"  className="text-lg font-normal"> 
+        <MdMap data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Lugares
+      </Button>
+      <Button path="/lugares" type="btn"  className="text-lg font-normal">
+        <MdContactPage data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000" /> Contacto
+      </Button>
+    </div>
+  </section>
+
+</header>

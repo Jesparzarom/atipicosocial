@@ -1,0 +1,28 @@
+---
+interface Props {
+  type: string;
+  path: string;
+  className?: string;
+  target?: string;
+  labelText?: string;
+  content?: any;
+  iconComponent?:any;
+}
+
+const { path, className, target, labelText, content, type } = Astro.props;
+---
+
+<!-- Componente Botón/Link Agnóstico -->
+<a
+  href={path}
+  class:list={[
+    type === "btn" && "btn btn-ghost",
+    type === "link" && "link",
+    type === "none" && "",
+    className,
+  ]}
+  aria-label={labelText}
+  target={target}
+>
+  <slot />
+</a>

@@ -1,0 +1,32 @@
+---
+import Place from "../places/Place.astro";
+export interface PlaceProps {
+  tipo: string;
+  nombre: string;
+  direccion: string;
+  ciudad: string;
+  provincia: string;
+  coordenadas: {
+    lat: string;
+    lon: string;
+  };
+  descripcion: string;
+  contacto: {
+    telefono: string;
+    email: string;
+  };
+  caracteristicas: string[];
+}
+
+export interface FilteredPlacesProps {
+  places: PlaceProps[];
+}
+
+const { places } = Astro.props;
+---
+
+<section class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10">
+    {places.map((place, index) => (
+        <Place {...place} />
+    ))}
+</section>

@@ -1,0 +1,19 @@
+---
+import { places } from "../../data/places/places";
+const placesList = Object.keys(places)
+
+placesList.map((category) => {
+    console.log(category)
+})
+
+---
+<section class="">
+    <h2>Categorías</h2>
+    <article class="flex gap-2">
+        {placesList.map((category) => (
+            <a href={`/lugares/${category}`}class="btn btn-sm btn-ghost bg-gradient-to-tr from-violet-500 to-teal-200 rounded-lg  cursor-pointer hover:from-teal-300 hover:to-teal-100 border-none shadow-lg">
+                <span class="text-xs">{category.slice(0,1).toUpperCase() + category.slice(1)}</span>
+            </a>
+        ))}
+    </article>
+</section>

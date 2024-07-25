@@ -1,0 +1,13 @@
+---
+import logo from "../../assets/logos/atipicosocial.png";
+import {Image} from "astro:assets";
+
+interface Props {
+    className?:string;
+    width?:number;
+    height?:number;
+}
+
+const {className, width, height} = Astro.props
+---
+<Image src={logo} alt ="Logo de Atípico Social" width={width} height={height} class={`${className}`} loading="eager"/>

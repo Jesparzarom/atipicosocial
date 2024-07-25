@@ -1,0 +1,7 @@
+---
+import PlacesLayout from "../../layouts/PlacesLayout.astro";
+import PlacesGrid from "../../components/react/PlacesListGrid";
+---
+<PlacesLayout bannerTitle="Lugares y Categorías" >
+  <PlacesGrid client:load placesIndexView/>
+</PlacesLayout>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<!-- Menú lateral -->
+<nav id="side-menu" class={`side-menu ${className} bg-base-100 -left-80 w-80 md:-left-1/4 md:w-1 top-0 fixed h-screen py-40`}>
+  <ul class="menu menu-vertical">
+    <li><a class="side-menu-btn" href="/#inicio">Inicio</a></li>
+    <li><a class="side-menu-btn" href="/#atipico-social">Atípico Social</a></li>
+    <li><a class="side-menu-btn" href="/#preguntas-frecuentes">Preguntas frecuentes</a></li>
+    <li><a class="side-menu-btn" href="/lugares">Lugares</a></li>
+  </ul>
+</nav>
+
+  
