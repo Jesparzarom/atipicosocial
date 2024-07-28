@@ -1,7 +1,7 @@
 
-function queryConstructor(params = { nombre: "", categoria: "", localidad: "", tipo: "", actividades: "" }) {
+function queryConstructor(params = { nombre: "", categoria: "", localidad: "", tipo: "", actividades: "", caracteristicas: "" }) {
 
-    const { nombre, categoria, localidad, tipo, actividades } = params;
+    const { nombre, categoria, localidad, tipo, actividades, caracteristicas } = params;
 
     const baseUrl = 'http://localhost:8000/api/v1/lugares/';
 
@@ -13,12 +13,11 @@ function queryConstructor(params = { nombre: "", categoria: "", localidad: "", t
     if (categoria) args.append("categoria", categoria);
     if (localidad) args.append("localidad", localidad);
     if (tipo) args.append("tipo", tipo);
+    if  (caracteristicas) args.append("caracteristicas", caracteristicas);
     if (actividades) args.append("actividades", actividades);
 
     // Crear la URL completa con los parámetros
     const queryUrl = args.toString() ? `${baseUrl}?${args.toString()}` : baseUrl;
-
-    //console.log(queryUrl); //==>http://localhost:8000/api/v1/lugares/?tipo=restaurante
     return queryUrl;
 }
 

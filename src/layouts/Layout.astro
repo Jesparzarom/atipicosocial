@@ -1,7 +1,8 @@
 ---
 import MetaGlobal from "../metadata/MetaGlobal.astro";
 import { ViewTransitions } from "astro:transitions";
-import Header from "../components/navigation/Header.astro";
+import Header from "../components/forNavigation/Header.astro";
+import SideMenu from "../components/forNavigation/SideMenu.astro";
 
 /* import "aos/dist/aos.css"; */
 import "@fontsource/londrina-solid/100.css";
@@ -15,7 +16,7 @@ import "@fontsource-variable/inter-tight";
 
 import "@fontsource-variable/unbounded";
 import "../assets/styles/global.css";
-import SideMenu from "../components/navigation/SideMenu.astro";
+
 
 interface Props {
   title: string;

@@ -1,0 +1,42 @@
+---
+import { MdLogoDev, MdInfo } from "react-icons/md";
+import { Image } from 'astro:assets';
+import Button from "../generics/Button.astro";
+
+interface Props {
+  heroTItle: string;
+  heroImagePath: ImageMetadata;
+  heroImageAlt: string;
+  heroBtnText?: string;
+  heroBtnLink: string;
+}
+
+const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Astro.props;
+---
+<div class="max-w-md bg-gradient-to-tr from-violet-500 to-teal-300 rounded-lg md:shadow-md glass">
+    <Image
+        src={heroImagePath} width={600} height={600}
+        alt={"Imágen de " + heroImageAlt}
+        class="object-fill" loading="eager"
+    />
+        
+</div>
+<div class="max-w-md bg-base-100 relative -top-20 md:static">
+    { heroTItle === "Bienvenidos" && (
+            <div>
+                <span class="text-pink-700 text-sm"><MdLogoDev className="inline text-base" />Aún en desarrollo</span>
+                <p class="text-pink-600 text-sm"> <MdInfo className="inline text-base" /> Por el momento sólo Lomas de Zamora y Lanús</p>
+            </div>
+        )
+    }
+    <h1 class="text-5xl md:text-6xl tracking-tighter font-bold text-indigo-900 break-words">
+        {heroTItle}
+    </h1>
+    <div class="divider"></div>
+    <p class="py-6 text-xl text-gray-600 font-normal">
+        <slot/>
+    </p>
+    <Button type="btn" path={heroBtnLink} className="shadow-lg bg-violet-400">
+        {heroBtnText}
+    </Button>
+</div>

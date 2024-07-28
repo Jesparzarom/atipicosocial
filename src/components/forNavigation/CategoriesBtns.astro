@@ -1,0 +1,42 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+
+const categorias = [
+  { nombre: "recreativo", pagina: "recreativos" },
+  { nombre: "entretenimiento", pagina: "entretenimiento" },
+  { nombre: "servicios", pagina: "servicios" },
+];
+---
+
+<article
+  class={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  `}
+>
+  <a
+    href={`/lugares/`}
+    class={`category-btn btn  btn-sm md:btn-lg btn-ghost rounded-xl border-none
+        hover:from-teal-300 hover:to-blue-300  bg-gradient-to-br shadow
+        transition-all ease-in-out duration-500
+         ${currentPage === "lugares" ? " from-teal-400 to-blue-400" : " from-indigo-400 to-blue-400"} `}
+  >
+    <span class="">Todos</span>
+  </a>
+  {
+    categorias.map((cat, index) => (
+      <a
+        href={`/lugares/${cat.pagina}`}
+        class={`category-btn btn btn-sm md:btn-lg btn-ghost rounded-xl border-none
+        hover:from-teal-300 hover:to-blue-300   bg-gradient-to-br shadow
+        transition-all ease-in-out duration-500
+            ${currentPage === cat.pagina ? " from-teal-400 to-blue-400" : " from-indigo-400 to-blue-400"} `}
+      >
+        <span class="">
+          {cat.nombre.slice(0, 1).toUpperCase() + cat.nombre.slice(1)}
+        </span>
+      </a>
+    ))
+  }
+</article>

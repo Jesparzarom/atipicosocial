@@ -1,6 +1,7 @@
 ---
 import Logo from "../generics/Logo.astro";
 import Button from "../generics/Button.astro";
+
 import {
   MdMap,
   MdHome,
@@ -30,16 +31,16 @@ import {
     <nav class="w-full hidden lg:block">
       <ul class="menu menu-horizontal px-1 text-lg">
         <li>
-          <a href="/#"><MdHome aria-label="icono de casa" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Inicio</a>
+          <a href="/#"><MdHome aria-label="icono de casa"  /> Inicio</a>
         </li>
         <li>
           <a href="/#atipico-social">
-            <MdCategory aria-label="icono de figuras geométricas" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Atípico Social</a
+            <MdCategory aria-label="icono de figuras geométricas"  /> Atípico Social</a
           >
         </li>
         <li>
           <a href="/#preguntas-frecuentes"
-            ><MdQuestionMark aria-label="icono de interrogación" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Preguntas</a
+            ><MdQuestionMark aria-label="icono de interrogación"  /> Preguntas</a
           >
         </li>
       </ul>
@@ -47,7 +48,7 @@ import {
   </section>
   
   <section transition:persist class="navbar-center">
-    <Button path="/" type="none" data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000">
+    <Button path="/" type="none">
       <Logo className="w-24" width={800} height={800} />
     </Button>
   </section>
@@ -55,10 +56,10 @@ import {
   <section class="w-full justify-center navbar-end" >
     <div  class="w-full py-5 px-5 hidden lg:flex flex-row items-center justify-end gap-2">
       <Button path="/lugares" type="btn"  className="text-lg font-normal"> 
-        <MdMap data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000"  /> Lugares
+        <MdMap  /> Lugares
       </Button>
       <Button path="/lugares" type="btn"  className="text-lg font-normal">
-        <MdContactPage data-aos="fade-in" data-aos-duration={1200} data-aos-delay="1000" /> Contacto
+        <MdContactPage /> Contacto
       </Button>
     </div>
   </section>

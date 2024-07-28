@@ -1,9 +1,9 @@
 ---
-import PlacesGrid from "../../../components/react/PlacesListGrid"
+import PlacesGrid from "../../../components/_reactIslands/PlacesListGrid"
 import PlacesLayout from "../../../layouts/PlacesLayout.astro"
 ---
-<PlacesLayout title="Lugares recreativos" bannerTitle="Recreativos" page="recreativo" isIndex={false}>
-<PlacesGrid client:load placesIndexView={false} category="recreativo"/>
+<PlacesLayout title="Lugares recreativos" bannerTitle="Recreativos" currentPage="recreativos">
+    <PlacesGrid client:load  category="recreativo"/>
 </PlacesLayout>
 
 

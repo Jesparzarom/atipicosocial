@@ -1,0 +1,11 @@
+#filtros-nav {
+    transition: left 0.3s ease; /* Transición suave al deslizarse desde la izquierda */
+  }
+  
+  .close-menu {
+    left: -20rem;
+  }
+  
+  .side-menu.open {
+    left: 0; /* Muestra el menú deslizándose desde la izquierda */
+  }

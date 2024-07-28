@@ -3,10 +3,11 @@
 * {
     transition: all ease-in-out 0.3s;
     scrollbar-gutter: stable;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Rubik Variable', sans-serif;
+  font-family: 'Rubik Variable', sans-serif;
 }
 
 h1,
