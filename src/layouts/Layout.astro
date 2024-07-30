@@ -46,28 +46,5 @@ const { title } = Astro.props;
     <main class="">
       <slot />
     </main>
-    
-    <!-- Scripts -->
-    <script>
-      const toggleBtn = document.getElementById(
-        "toggleMenu"
-      ) as HTMLInputElement;
-      const sideMenu = document.getElementById("side-menu");
-      const sideButtons = document.querySelectorAll(".side-menu-btn");
-
-      toggleBtn.addEventListener("input", () => {
-        sideMenu.classList.toggle("open");
-      });
-
-      sideButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          sideMenu.classList.toggle("open");
-        });
-      });
-    </script>
-<!--     <script src="../assets/js/aosInit.js">
-    </script> -->
-
   </body>
-
 </html>

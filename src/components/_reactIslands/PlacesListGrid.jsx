@@ -117,22 +117,22 @@ export default function PlacesGrid({ category = ""}) {
     }
 
     return (
-    <aside class=''>
-        <article class="flex gap-2  px-2 py-5">
-            <section id='filtros-nav' class={` p-5 w-96  z-[80] min-h-screen bg-slate-100 rounded-lg border border-indigo-100`}>
+    <article class=''>
+        <section class="flex gap-2  py-5">
+            <aside id='filtros-nav' class={` p-5 w-96  z-[80] min-h-screen bg-slate-100 rounded-lg border border-indigo-100  hidden lg:block`}>
                 <h4 class='text-2xl'>Filtrar por</h4>
                 {tipo || actividad || caracteristica ? <button class="link" onClick={resetFiltros}>Quitar filtros</button> : <span class="my-5 text-transparent">*</span>}
                 <div class='flex flex-col gap-4'>
                     <Filter filterName="Tipo" filterArray={tipos} filterSelected={tipo} handlerClick={handleTipo} />
                     <Filter filterName="Actividad" filterArray={actividades} filterSelected={actividad} handlerClick={handleActividad} />
                 </div>
-            </section>
-            <section class="w-full px-5 grid grid-cols-1 md:grid-cols-1 gap-10 pb-48" id="places-container">
+            </aside>
+            <section class="w-full grid grid-cols-1 md:grid-cols-1 gap-10 pb-48" id="places-container">
             {isLoading ? <CardSkeleton /> : error ? <CardNotFound  /> : (
                 places.map((place) => {const { key, ...props } = place; return (<div key={key}><PlaceCard {...props} /></div>)})
             )}
             </section>
-        </article>
-    </aside>
+        </section>
+    </article>
     );
 }

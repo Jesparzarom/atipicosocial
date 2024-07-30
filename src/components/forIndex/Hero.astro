@@ -1,7 +1,7 @@
 ---
-import { MdLogoDev, MdInfo } from "react-icons/md";
 import { Image } from 'astro:assets';
 import Button from "../generics/Button.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   heroTItle: string;
@@ -10,6 +10,9 @@ interface Props {
   heroBtnText?: string;
   heroBtnLink: string;
 }
+
+// this is a component that shows a hero image and a title
+// and a button to a link
 
 const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Astro.props;
 ---
@@ -23,9 +26,9 @@ const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Ast
 </div>
 <div class="max-w-md bg-base-100 relative -top-20 md:static">
     { heroTItle === "Bienvenidos" && (
-            <div>
-                <span class="text-pink-700 text-sm"><MdLogoDev className="inline text-base" />Aún en desarrollo</span>
-                <p class="text-pink-600 text-sm"> <MdInfo className="inline text-base" /> Por el momento sólo Lomas de Zamora y Lanús</p>
+            <div class="flex flex-col justify-start items-start">
+                <span class="text-pink-700 text-sm"><Icon is:inline  title="icono dev" name="mdidev" class="size-5 inline"/> Aún en desarrollo</span>
+                <span class="text-pink-600 text-sm"><Icon is:inline  title="icono info" name="mdiinfo" class="size-5 inline"/> Por el momento sólo Lomas de Zamora y Lanús</span>
             </div>
         )
     }

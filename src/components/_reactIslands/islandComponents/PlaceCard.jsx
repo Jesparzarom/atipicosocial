@@ -1,7 +1,7 @@
 import { MdPlace, MdLocationCity, MdCheck, MdWhatsapp, MdMail, MdWeb, MdPhone, MdOutlineWidgets } from "react-icons/md"
+import { TbWorld } from "react-icons/tb";
 import { IoLogoInstagram } from "react-icons/io"
 import { getWordFirstLetter } from "../../../assets/js/stringManipulators";
-import { Image } from "astro:assets";
 
 export default function PlaceCard(
     { 
@@ -36,7 +36,7 @@ export default function PlaceCard(
     const cardContactButtons = [
         { title: "LLamar", icon: <MdPhone class="text-xl" />, href: contacto.telefono ? `tel:${contacto.telefono}` : "" },
         { title: "WhatsApp", icon: <MdWhatsapp class="text-xl text-neutral" />, href: contacto.whatsapp ? `https://web.whatsapp.com/send/?phone=${contacto.whatsapp}` : "" },
-        { title: "Web", icon: <MdWeb class="text-xl" />, href: contacto.web ? `${contacto.web}` : "" },
+        { title: "Web", icon: <TbWorld class="text-xl" />, href: contacto.web ? `${contacto.web}` : "" },
         { title: "Instagram", icon: <IoLogoInstagram class="text-xl" />, href: contacto.instagram ? `${contacto.instagram}` : "" },
         { title: "Mail", icon: <MdMail class="text-xl" />, href: contacto.email ? `mailto:${contacto.email}` : "" }
     ]
@@ -51,7 +51,7 @@ export default function PlaceCard(
         <article>
                 <div class=" inset-x-0 top-0  h-2 bg-gradient-to-l from-teal-300 via-blue-500 to-violet-600 rounded-t-lg shadow-lg"></div>
             <section
-                class="pb-20 bg-gradient-to-tr from-indigo-200 to-transparent  overflow-hidden rounded-b-lg  p-4 sm:p-6 lg:p-8 shadow"
+                class=" bg-gradient-to-tr from-indigo-200 to-transparent  overflow-hidden rounded-b-lg  p-4 sm:p-6 lg:p-8 shadow"
             >
                 <div class="sm:flex sm:justify-between sm:gap-4">
 
@@ -71,7 +71,7 @@ export default function PlaceCard(
                         </div>
                     </div>
 
-                    <div class="hidden sm:block sm:shrink-0">
+                    <div class="hidden md:block sm:shrink-0">
                         <img
                             alt={cardImg.alt}
                             src={imagePath}
@@ -83,11 +83,11 @@ export default function PlaceCard(
                 </div>
 
                 <div class="mt-5">
-                    <p class="text-pretty text-lg text-gray-700 py-5 leading-none">
+                    <p class="max-w-5xl text-gray-600 py-5 leading-none hidden lg:block">
                         {descripcion}
                     </p>
 
-                    <div class="my-3 flex justify-around">
+                    <div class="my-3 flex justify-around md:justify-start md:flex-col">
 
                         <div class="">
                             <small class="mt-5 font-bold text-gray-600">Actividades</small>
@@ -112,17 +112,17 @@ export default function PlaceCard(
                         </div>
 
                     </div>
-
                 </div>
+
                 <div class="">
-                    <div class="mt-6 flex flex-wrap  gap-y-2 gap-x-4 sm:gap-2">
+                    <div class="flex flex-wrap  gap-2">
                         <h4 class="w-full">Info</h4>
 
                         {
                             cardContactButtons.map((btn) => (
                             btn.href ? (
                             <div class="text-center" key={`key${btn.title}`}>
-                                <a href={btn.href} target="_blank" class="text-sm btn btn-sm bg-teal-400 hover:bg-violet-300 font-medium shadow-lg border-none"> {btn.icon} {btn.title}</a>
+                                <a href={btn.href} target="_blank" class="text-sm btn btn-sm bg-teal-400 hover:bg-violet-300 font-medium shadow-lg border-none"> {btn.icon} <span class="hidden lg:block">{btn.title}</span></a>
                             </div>
                             ) : ("")
                             ))

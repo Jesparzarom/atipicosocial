@@ -1,4 +1,6 @@
 ---
+import {upperCaseFirst} from "../../assets/js/stringManipulators";
+
 interface Props {
   currentPage?: string;
 }
@@ -6,14 +8,14 @@ interface Props {
 const { currentPage } = Astro.props;
 
 const categorias = [
-  { nombre: "recreativo", pagina: "recreativos" },
+  { nombre: "recreativos", pagina: "recreativos" },
   { nombre: "entretenimiento", pagina: "entretenimiento" },
   { nombre: "servicios", pagina: "servicios" },
 ];
 ---
 
 <article
-  class={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  `}
+  class={` grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  grid `}
 >
   <a
     href={`/lugares/`}
@@ -34,7 +36,7 @@ const categorias = [
             ${currentPage === cat.pagina ? " from-teal-400 to-blue-400" : " from-indigo-400 to-blue-400"} `}
       >
         <span class="">
-          {cat.nombre.slice(0, 1).toUpperCase() + cat.nombre.slice(1)}
+          {upperCaseFirst(cat.nombre)}
         </span>
       </a>
     ))
