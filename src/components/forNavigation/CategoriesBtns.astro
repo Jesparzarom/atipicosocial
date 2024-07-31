@@ -15,11 +15,11 @@ const categorias = [
 ---
 
 <article
-  class={` grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2  grid `}
+  class={`grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2 sticky top-0`}
 >
   <a
     href={`/lugares/`}
-    class={`category-btn btn  btn-sm md:btn-lg btn-ghost rounded-xl border-none
+    class={`category-btn btn  btn-xs md:btn-sm btn-ghost rounded-xl border-none
         hover:from-teal-300 hover:to-blue-300  bg-gradient-to-br shadow
         transition-all ease-in-out duration-500
          ${currentPage === "lugares" ? " from-teal-400 to-blue-400" : " from-indigo-400 to-blue-400"} `}
@@ -30,7 +30,7 @@ const categorias = [
     categorias.map((cat, index) => (
       <a
         href={`/lugares/${cat.pagina}`}
-        class={`category-btn btn btn-sm md:btn-lg btn-ghost rounded-xl border-none
+        class={`category-btn btn btn-xs md:btn-sm btn-ghost rounded-xl border-none
         hover:from-teal-300 hover:to-blue-300   bg-gradient-to-br shadow
         transition-all ease-in-out duration-500
             ${currentPage === cat.pagina ? " from-teal-400 to-blue-400" : " from-indigo-400 to-blue-400"} `}

@@ -1,11 +1,13 @@
-#filtros-nav {
-    transition: left 0.3s ease; /* Transición suave al deslizarse desde la izquierda */
+.filtros-nav-container {
+    transition: all 0.3s ease; /* Transición suave al deslizarse desde la izquierda */
+    position:sticky !important;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow-y: auto;
   }
-  
-  .close-menu {
-    left: -20rem;
-  }
-  
-  .side-menu.open {
-    left: 0; /* Muestra el menú deslizándose desde la izquierda */
+
+  .filtros-nav-container-mobile {
+    transition: all 0.3s ease; /* Transición suave al deslizarse desde la izquierda */
+    height: 80vh;
   }

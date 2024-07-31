@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'preact/hooks';
 import "./styles/style.css";
 /* ExternalComponents */
+import { MdClose, MdFilterList, MdFilterListOff} from 'react-icons/md';
 import PlaceCard from './islandComponents/PlaceCard';
 import CardSkeleton from './islandComponents/CardSkeleton';
 import CardNotFound  from './islandComponents/CardNotFound';
-import { MdClose} from 'react-icons/md';
 /*  helpers */
 import { queryConstructor } from '../../utils/queries';
 import { obtenerListas } from '../../utils/lists';
@@ -100,9 +100,9 @@ export default function PlacesGrid({ category = ""}) {
             <ul class="menu flex w-full rounded-box border gap-1 justify-start py-5">
                 {isFilterLoading ? (<Skeleton/>) : (
                     filterArray.map(($item$, index) => (
-                        <li key={`${filterSelected}-${index}`} class=' w-full text-left'>
+                        <li key={`${filterSelected}-${index}`} class=' w-full text-left text-sm'>
                         <button
-                            class={`hover:bg-indigo-100 border-none  ${filterSelected === $item$ ? `bg-indigo-400 text-white` : "border-2"}`}
+                            class={`hover:bg-indigo-100 border-none py-1 ${filterSelected === $item$ ? `bg-indigo-400 text-white` : "border-2"}`}
                             onClick={() => handlerClick($item$)}
                         >   
                         <MdClose className={`text-lg duration-75 ${filterSelected === $item$ ? "text-black" : "text-transparent"}`} />
@@ -118,15 +118,54 @@ export default function PlacesGrid({ category = ""}) {
 
     return (
     <article class=''>
-        <section class="flex gap-2  py-5">
-            <aside id='filtros-nav' class={` p-5 w-96  z-[80] min-h-screen bg-slate-100 rounded-lg border border-indigo-100  hidden lg:block`}>
+        <section class="flex flex-col lg:flex-row gap-2">
+            <section class="w-full lg:hidden bg-slate-100 rounded-lg shadow flex flex-col flex-nowrap justify-end">
+            <div class="w-full flex flex-col items-center justify-center text-center py-0 px-3">
+                <div class="breadcrumbs text-xs mx-auto">
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/lugares">Lugares</a></li>
+                        {categoria ? <li>{categoria == "recreativo" ? "Recreativos" : categoria }</li> : null}
+                        {/* {tipo || actividad ? <li><MdFilterList className='text-sm inline' /> {tipo && actividad ?  tipo +" + "+ actividad : (tipo ? tipo : (actividad ? actividad : null)) }</li> : null} */}
+                    </ul>
+                </div>
+            </div>
+            
+                <div class="dropdown dropdown-end w-full">
+                    <div class="w-full flex flex-row justify-end">
+                {tipo || actividad || caracteristica ? <button class="link text-sm mx-5" onClick={resetFiltros}><MdFilterListOff className='text-base inline' /> Quitar filtros</button> : <span class="my-5 mx-5  text-transparent">*</span>}
+                        <div tabindex="0" role="button" class="btn btn-ghost m-2"> <MdFilterList className='text-base inline' /> Filtros</div>
+                    </div>
+                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-80 p-2 shadow">
+                        <div class="h-[80vh] overflow-y-auto">
+                            <Filter filterName="Tipo" filterArray={tipos} filterSelected={tipo} handlerClick={handleTipo} />
+                            <Filter filterName="Actividad" filterArray={actividades} filterSelected={actividad} handlerClick={handleActividad} />
+                        </div>
+                        </ul>
+                    </div>
+            </section>
+
+            <aside id='filtros-nav' class={` filtros-nav-container w-96 bg-slate-100 rounded-lg border border-indigo-100  hidden lg:block px-5 py-5`}>
+            <div class="w-full flex flex-col items-center justify-center text-center pb-10 px-3">
+                <div class="breadcrumbs text-xs mx-auto">
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/lugares">Lugares</a></li>
+                        {categoria ? <li>{categoria == "recreativo" ? "Recreativos" : categoria }</li> : null}
+                        {/* {tipo || actividad ? <li><MdFilterList className='text-sm inline' /> {tipo && actividad ?  tipo +" + "+ actividad : (tipo ? tipo : (actividad ? actividad : null)) }</li> : null} */}
+                    </ul>
+                </div>
+            </div>
+                <div class="">
                 <h4 class='text-2xl'>Filtrar por</h4>
                 {tipo || actividad || caracteristica ? <button class="link" onClick={resetFiltros}>Quitar filtros</button> : <span class="my-5 text-transparent">*</span>}
                 <div class='flex flex-col gap-4'>
                     <Filter filterName="Tipo" filterArray={tipos} filterSelected={tipo} handlerClick={handleTipo} />
                     <Filter filterName="Actividad" filterArray={actividades} filterSelected={actividad} handlerClick={handleActividad} />
                 </div>
+                </div>
             </aside>
+
             <section class="w-full grid grid-cols-1 md:grid-cols-1 gap-10 pb-48" id="places-container">
             {isLoading ? <CardSkeleton /> : error ? <CardNotFound  /> : (
                 places.map((place) => {const { key, ...props } = place; return (<div key={key}><PlaceCard {...props} /></div>)})

@@ -2,6 +2,7 @@
 import MetaGlobal from "../metadata/MetaGlobal.astro";
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/forNavigation/Header.astro";
+import Footer from "../components/generics/Footer.astro";
 import SideMenu from "../components/forNavigation/SideMenu.astro";
 
 /* import "aos/dist/aos.css"; */
@@ -46,5 +47,8 @@ const { title } = Astro.props;
     <main class="">
       <slot />
     </main>
+
+    <Footer/>
+
   </body>
 </html>

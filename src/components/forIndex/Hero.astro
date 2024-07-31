@@ -16,7 +16,7 @@ interface Props {
 
 const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Astro.props;
 ---
-<div class="max-w-md bg-gradient-to-tr from-violet-500 to-teal-300 rounded-lg md:shadow-md glass">
+<div class="max-w-md bg-gradient-to-tr from-violet-400 to-teal-200 rounded-lg md:shadow-md glass">
     <Image
         src={heroImagePath} width={600} height={600}
         alt={"Imágen de " + heroImageAlt}
@@ -25,10 +25,10 @@ const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Ast
         
 </div>
 <div class="max-w-md bg-base-100 relative -top-20 md:static">
-    { heroTItle === "Bienvenidos" && (
+    { heroTItle === "Bienvenid@s" && (
             <div class="flex flex-col justify-start items-start">
                 <span class="text-pink-700 text-sm"><Icon is:inline  title="icono dev" name="mdidev" class="size-5 inline"/> Aún en desarrollo</span>
-                <span class="text-pink-600 text-sm"><Icon is:inline  title="icono info" name="mdiinfo" class="size-5 inline"/> Por el momento sólo Lomas de Zamora y Lanús</span>
+                <span class="text-pink-600 text-sm"><Icon is:inline  title="icono info" name="mdiinfo" class="size-5 inline"/> Por el momento sólo algunas localidades del AMBA</span>
             </div>
         )
     }
@@ -39,7 +39,7 @@ const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Ast
     <p class="py-6 text-xl text-gray-600 font-normal">
         <slot/>
     </p>
-    <Button type="btn" path={heroBtnLink} className="shadow-lg bg-violet-400">
+    <Button type="btn" path={heroBtnLink} className="shadow-lg bg-indigo-300">
         {heroBtnText}
     </Button>
 </div>
