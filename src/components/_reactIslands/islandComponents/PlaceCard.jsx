@@ -48,7 +48,7 @@ export default function PlaceCard(
     );
 
     return (
-        <article>
+        <article class="fade-up">
                 <div class=" inset-x-0 top-0  h-2 bg-gradient-to-l from-teal-300 via-blue-500 to-violet-600 rounded-t-lg shadow-lg"></div>
             <section
                 class=" bg-gradient-to-tr from-indigo-200 to-transparent  overflow-hidden rounded-b-lg  p-4 sm:p-6 lg:p-8 shadow"

@@ -9,18 +9,21 @@ interface Props {
   heroImageAlt: string;
   heroBtnText?: string;
   heroBtnLink: string;
+  heroBtnText2?: string;
+  heroBtnLink2?: string;
 }
 
 // this is a component that shows a hero image and a title
 // and a button to a link
 
-const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Astro.props;
+const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink, heroBtnLink2, heroBtnText2 } = Astro.props;
 ---
 <div class="max-w-md bg-gradient-to-tr from-violet-400 to-teal-200 rounded-lg md:shadow-md glass">
     <Image
         src={heroImagePath} width={600} height={600}
         alt={"Imágen de " + heroImageAlt}
-        class="object-fill" loading="eager"
+        class="fade object-fill" loading="eager"
+
     />
         
 </div>
@@ -42,4 +45,7 @@ const { heroTItle, heroImagePath, heroImageAlt, heroBtnText, heroBtnLink } = Ast
     <Button type="btn" path={heroBtnLink} className="shadow-lg bg-indigo-300">
         {heroBtnText}
     </Button>
+    {
+        heroTItle === "Atípico + Social" ? <Button type="btn" path={heroBtnLink2} className="shadow-lg bg-indigo-300">{heroBtnText2}</Button> : null
+    }
 </div>

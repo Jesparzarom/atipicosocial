@@ -22,24 +22,50 @@ import Hero from "../../components/forIndex/Hero.astro"
        </small>
     </div>
       <div class=" card bg-base-100 w-full max-w-xl shadow-2xl" id="formulario-contacto">
-        <form class="w-full card-body">
+        <form class="w-full card-body" id="form">
           <div class="form-control">
-            <label class="label">
+            <label class="label" for="#motivo">
               <span class="label-text">Motivo</span>
             </label>
-            <input type="text" placeholder="Motivo de contacto" class="input input-bordered" required />
+            <input id="motivo" type="text" placeholder="Motivo de contacto" class="input input-bordered" required />
           </div>
 
           <div class="form-control">
-            <label class="label">
+            <label class="label" for="#mensaje">
               <span class="label-text">Mensaje</span>
             </label>
-            <textarea class="textarea textarea-bordered h-48" placeholder="Bio" maxlength="500" required></textarea>
+            <textarea id="mensaje" class="textarea textarea-bordered h-48" placeholder="Bio" maxlength="500" required></textarea>
           </div>
           <div class="form-control mt-6">
-            <button class="btn btn-ghost bg-indigo-300">Enviar</button>
+            <button id="submit-btn" class="btn btn-ghost bg-indigo-300">Enviar</button>
           </div>
         </form>
       </div>
   </div>
+  <script>
+    document.addEventListener("astro:page-load", () => {
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+      
+      // Obtén los datos del formulario
+      const mtv = document.getElementById('motivo') as HTMLInputElement
+      const msg = document.getElementById('mensaje') as HTMLInputElement
+
+      const motivo = mtv.value;
+      const mensaje = msg.value;
+      
+      // Codifica los datos para usarlos en un enlace
+      const encodedMotivo = encodeURIComponent(motivo);
+      const encodedEmail = encodeURIComponent("esparxdigital@gmail.com");
+      const encodedMensaje = encodeURIComponent(mensaje);
+      
+      //  mailto
+      const mailtoLink = `mailto:${encodedEmail}?subject=${encodedMotivo}&body=${encodedMensaje}`;
+      
+      // Redirige al usuario al cliente de correo electrónico
+      window.location.href = mailtoLink;
+    });
+  } )
+    </script>
+    
 </Layout>

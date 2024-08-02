@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout title="Sobre La plataforma">
+  <section class="min-h-screen py-10">
+    <div class="mx-auto max-w-screen-2xl px-5 py-8 sm:px-5 lg:px-5">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div class="grid grid-cols-1">
+            <Image
+                width={500}
+                height={500}
+                loading="eager"
+                alt="ilustración transhumans de chicos jugando"
+                src="/public/experiments.png"
+                class="fade h-40 w-full object-contain sm:h-56 md:h-full"
+              />
+            </div>
+        <div class="bg-indigo-500 p-8 md:p-12 lg:px-16 lg:py-24 rounded-lg shadow-lg">
+          <div class="mx-auto max-w-xl text-left text-white">
+            <h2 class="text-2xl font-bold text-white md:text-3xl">
+              Sobre Atípico Social
+            </h2>
+            <p class=" py-2">
+              Atípico Social nace de la convicción de que todas las personas
+              merecen acceso a espacios y recursos que les permitan vivir de
+              manera plena, autónoma y aceptados como son dentro de la sociedad.
+              Su propósito es ser un puente que conecte a la comunidad
+              neurodivergente con lugares y servicios inclusivos, que respeten y
+              valoren las diferencias individuales.
+            </p>
+            <p class="py-2">
+              La visión de Atípico Social es un mundo donde lo "atípico" se
+              celebre y donde cada persona pueda encontrar entornos que se
+              adapten a sus particularidades, promoviendo bienestar, sentido de
+              pertenencia y una integración plena en la sociedad. La plataforma
+              se basa en valores como la inclusividad, creyendo que cada persona
+              merece encontrar espacios que la respeten y la acojan tal como es;
+              la accesibilidad, asegurando que la información sea fácil de
+              encontrar y comprender, sin barreras ni complicaciones; y la
+              autonomía, proporcionando herramientas y recursos que permitan a
+              cada persona tomar sus propias decisiones con confianza. Además,
+              se valora profundamente la colaboración, reconociendo que la
+              participación de la comunidad es esencial para mejorar
+              continuamente este espacio.
+            </p>
+            <p class=" py-2">
+              Los objetivos de Atípico Social son claros: conectar a las
+              personas neurodivergentes con los recursos que pueden mejorar su
+              calidad de vida, ofrecer información clara y actualizada sobre
+              lugares y servicios adaptados a sus necesidades, y empoderar a la
+              comunidad fomentando la autonomía y la confianza en la toma de
+              decisiones al facilitar acceso a información relevante y de
+              calidad, todo mientras se promueve una convivencia social que
+              acepte y valore la diversidad.
+            </p>
+
+            <div class="mt-4 md:mt-8">
+              <a
+                href="/"
+                class="btn btn-ghost inline-block  border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-teal-400"
+              >
+                Ir a Inicio
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

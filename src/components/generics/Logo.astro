@@ -6,8 +6,9 @@ interface Props {
     className?:string;
     width?:number;
     height?:number;
+    loading?:any;
 }
 
-const {className, width, height} = Astro.props
+const {className, width, height, loading} = Astro.props
 ---
-<Image src={logo} alt ="Logo de Atípico Social" width={width} height={height} class={`${className}`} loading="eager"/>
+<Image src={logo} alt ="Logo de Atípico Social" width={width} height={height} class={`${className}`} loading={ loading || "eager"}/>

@@ -2,7 +2,7 @@
 import Logo from "../generics/Logo.astro";
 ---
 <footer class="text-base-content ">
-    <div class="footer footer-center p-10 bg-indigo-100">
+    <div class="footer footer-center p-10 bg-blue-950 text-white">
 
         <!-- Socials -->
 <!--         <nav class="grid grid-flow-col gap-6">
@@ -23,19 +23,20 @@ import Logo from "../generics/Logo.astro";
         <!-- Links -->
         <nav>
             <div class="flex flex-wrap justify-center gap-y-2 gap-x-6 text-lg">
-                <a href="/contacto" class="link link-hover">Contáctanos</a>
-                <a href="" class="link link-hover">Sobre Atípico Social</a>
-                <a href="" class="link link-hover">Disclaimer</a>
+                <a href="/sobre-atipico-social" class="link link-hover">Sobre Atípico Social</a>
+                <a href="/info" class="link link-hover">Aviso</a>
                 <a href="/lugares" class="link link-hover">Lugares</a>
+                <a href="/contacto" class="link link-hover">Contáctanos</a>
             </div>
         </nav>
     </div>
 
     <!-- Brand -->
-    <aside class="bg-blue-200 py-4 px-8 w-full flex gap-2 flex-wrap justify-between items-center text-sm">
+    <aside class="bg-blue-950 text-white py-4 px-8 w-full flex gap-2 flex-wrap justify-between items-center text-sm">
         <p class="text-xl flex items-center gap-2">
-            <Logo className="size-16" />
+            <Logo className="size-16" loading={"lazy"} />
             <span>Atípico Social</span>
+            <span class="font-mono text-sm text-teal-300">1.0.0</span>
         </p>
         <p>Copyright © 2024 - Developed by J.P. Esparza & EsparX Digital</p>
     </aside>

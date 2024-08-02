@@ -1,34 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/forIndex/Hero.astro"
+import Hero from "../components/forIndex/Hero.astro";
 import pilot from "/public/pilot.png";
 import pondering from "/public/pondering.png";
 import Faqs from "../components/forIndex/Faqs.astro";
 ---
+
 <Layout title="Bienvenidos | Atípico Social">
-  <section class="w-full flex flex-col md:flex-row gap-5 items-center md:justify-around px-4 py-20" id="inicio">
+  <section
+    class="w-full flex flex-col md:flex-row gap-5 items-center md:justify-around px-4 py-20"
+    id="inicio"
+  >
     <!-- Hero principal -->
-    <Hero 
-      heroTItle="Bienvenid@s" heroImagePath={pilot} heroImageAlt="piloto mirando de costado" 
-      heroBtnText="+ Info" heroBtnLink="/#atipico-social">
-          <span class="italic">"Atípico Social"</span> es una plataforma dedicada a
-          promover la integración social de personas neurodivergentes, especialmente
-          aquellas en el espectro<span class="text-emerald-600"> autista.</span>
-          Agrupamos diversos espacios y recursos que ofrecen ambientes amigables. Nuestro
-          objetivo es facilitar la búsqueda de lugares inclusivos y accesibles.
+    <Hero
+      heroTItle="Bienvenid@s"
+      heroImagePath={pilot}
+      heroImageAlt="piloto mirando de costado"
+      heroBtnText="+ Info"
+      heroBtnLink="/#atipico-social"
+    >
+      <span class="italic">"Atípico Social"</span> es una plataforma dedicada a promover
+      la integración social de personas neurodivergentes, especialmente aquellas
+      en el espectro<span class="text-emerald-600"> autista.</span>
+      Agrupamos diversos espacios y recursos que ofrecen ambientes amigables. Nuestro
+      objetivo es facilitar la búsqueda de lugares inclusivos y accesibles.
     </Hero>
   </section>
   <!-- Hero atípico + social -->
-  <section class="w-full flex flex-col md:flex-row-reverse items-center md:justify-around px-4 py-40" id="atipico-social">
-  <Hero 
-    heroTItle="Atípico + Social" heroImagePath={pondering} heroImageAlt="chico mirando hacia arriba" 
-    heroBtnText="Preguntas frecuentes" heroBtnLink="/#preguntas-frecuentes">  
-        Llamamos "atípico" a aquello que se sale de lo "común", aquello
-        diferente, aquello especial que aporta una perspectiva única. Social
-        representa la integración y la conexión humana. Acá, lo atípico se
-        celebra y se integra en lo social, construyendo puentes de entendimiento
-        y empatía.
-  </Hero>
+  <section
+    class="w-full flex flex-col md:flex-row-reverse items-center md:justify-around px-4 py-40"
+    id="atipico-social"
+  >
+    <Hero
+      heroTItle="Atípico + Social"
+      heroImagePath={pondering}
+      heroImageAlt="chico mirando hacia arriba"
+      heroBtnText="Preguntas"
+      heroBtnLink="/#preguntas-frecuentes"
+      heroBtnText2="Sobre la iniciativa"
+      heroBtnLink2="/sobre-atipico-social"
+    >
+      Llamamos "atípico" a aquello que se sale de lo "común", aquello diferente,
+      aquello especial que aporta una perspectiva única. Social representa la
+      integración y la conexión humana. Acá, lo atípico se celebra y se integra
+      en lo social, construyendo puentes de entendimiento y empatía.
+    </Hero>
   </section>
   <!-- Preguntas frecuentes -->
   <section><Faqs /></section>

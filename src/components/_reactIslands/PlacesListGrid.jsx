@@ -1,5 +1,6 @@
 /* hooks */
 import { useState, useEffect } from 'preact/hooks';
+import { inView, animate } from "motion";
 import "./styles/style.css";
 /* ExternalComponents */
 import { MdClose, MdFilterList, MdFilterListOff} from 'react-icons/md';
@@ -58,6 +59,22 @@ export default function PlacesGrid({ category = ""}) {
     useEffect(() => {
         fetchPlaces()
     }, [categoria, tipo, actividad, caracteristica]);
+
+    useEffect(() => {
+        const fadeUp = document.querySelectorAll(".fade-up");
+        fadeUp.forEach(
+            (el ) => {
+                inView(el, () => {
+                    animate(el, {
+                       opacity: [0,  1],
+                      }, {
+                         duration:1.5,
+                          easing: "ease-in-out"
+                        });
+                });
+            }
+        )
+    })
 
     const handleTipo = (t) => {
         setError(null);
