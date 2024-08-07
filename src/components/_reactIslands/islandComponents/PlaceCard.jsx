@@ -43,7 +43,7 @@ export default function PlaceCard(
     ]
 
     const imagePath = cardImg.path ? ( 
-        `/places/logos/${cardImg.path}`
+        `/atipicosocial/places/logos/${cardImg.path}`
     ) : (
         `https://placehold.co/500/91AFFF/DAE4FC/?font=oswald&text=${getWordFirstLetter(nombre)}&bg=#4B6FF1&fg=333333&tc=333333&/.png`
     );

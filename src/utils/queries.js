@@ -3,7 +3,7 @@ function queryConstructor(params = { nombre: "", categoria: "", localidad: "", t
 
     const { nombre, categoria, localidad, tipo, actividades, caracteristicas, ciudad } = params;
 
-    const baseUrl = 'http://localhost:8000/api/v1/lugares/';
+    const baseUrl = 'https://atipicosocialapi.onrender.com/api/v1/lugares/';
 
     // Crear una instancia de URLSearchParams
     const args = new URLSearchParams();

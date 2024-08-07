@@ -2,7 +2,9 @@
 import Logo from "../generics/Logo.astro";
 import Button from "../generics/Button.astro";
 import { Icon } from "astro-icon/components";
+import { BASEPATH } from "../../assets/js/envir";
 
+const basePath = BASEPATH()
 ---
 <header class="w-full bg-base-100 shadow-md flex flex-col lg:flex-row items-center justify-center sticky top-0 z-[99] lg:px-10">
     <div class="absolute  lg:hidden top-6 left-3 btn btn-ghost">
@@ -19,15 +21,15 @@ import { Icon } from "astro-icon/components";
     <nav class="w-full hidden lg:block">
       <ul class="menu menu-horizontal px-1 text-lg">
         <li>
-          <a href="/#"><Icon is:inline  title="icono inicio" name="mdihome" class="size-5 inline"/> Inicio</a>
+          <a href={`${basePath}/#`}><Icon is:inline  title="icono inicio" name="mdihome" class="size-5 inline"/> Inicio</a>
         </li>
         <li>
-          <a href="/sobre-atipico-social">
+          <a href={`${basePath}/sobre-atipico-social`}>
             <Icon is:inline  title="icono categorias" name="mdicategory" class="size-5 inline"/> Atípico Social</a
           >
         </li>
         <li>
-          <a href="/#preguntas-frecuentes"
+          <a href={`${basePath}/#preguntas-frecuentes`}
             ><Icon is:inline  title="icono preguntas" name="mdiquestion" class="size-5 inline"/> Preguntas</a
           >
         </li>
@@ -36,20 +38,20 @@ import { Icon } from "astro-icon/components";
   </section>
 
   <section transition:persist class="navbar-center">
-    <Button path="/" type="none">
+    <Button path={basePath} type="none">
       <Logo className="w-24" width={800} height={800} />
     </Button>
   </section>
 
   <section class="w-full justify-center navbar-end" >
     <div  class="w-full py-5 px-5 hidden lg:flex flex-row items-center justify-end gap-2">
-      <Button path="/lugares" type="btn"  className="text-lg font-normal"> 
+      <Button path={`${basePath}/lugares`} type="btn"  className="text-lg font-normal"> 
         <Icon is:inline  title="icono mapa" name="mdipin" class="size-5 inline"/> Lugares
       </Button>
-      <Button path="/contacto" type="btn"  className="text-lg font-normal">
+      <Button path={`${basePath}/contacto`} type="btn"  className="text-lg font-normal">
         <Icon is:inline  title="icono contacto" name="mdicontact" class="size-5 inline"/> Contacto
       </Button>
-      <Button path="/info" type="btn"  className="text-lg font-normal">
+      <Button path={`${basePath}/info`} type="btn"  className="text-lg font-normal">
         <Icon is:inline  title="icono contacto" name="mdinotification" class="size-5 inline"/> Aviso
       </Button>
     </div>
@@ -60,14 +62,13 @@ import { Icon } from "astro-icon/components";
 <aside class="asideMenu  h-screen shadow-xl rounded-e-lg bg-base-100">
   <nav class="p-4">
     <ul class="flex flex-col">
-      <li><a class="w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/#"><Icon is:inline  title="icono inicio" name="mdihome" class=" size-5 inline"/> Inicio</a></li>
-      <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/sobre-atipico-social"><Icon is:inline  title="icono categorias" name="mdicategory" class=" size-5 inline"/> Atípico Social</a></li>
-      <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/#preguntas-frecuentes"><Icon is:inline  title="icono preguntas" name="mdiquestion" class=" size-5 inline"/> Preguntas</a></li>
+      <li><a class="w-full btn btn-ghost active:bg-indigo-500 justify-start" href={`${basePath}/#`}><Icon is:inline  title="icono inicio" name="mdihome" class=" size-5 inline"/> Inicio</a></li>
+      <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href={`${basePath}/sobre-atipico-social`}><Icon is:inline  title="icono categorias" name="mdicategory" class=" size-5 inline"/> Atípico Social</a></li>
+      <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href={`${basePath}/#preguntas-frecuentes`}><Icon is:inline  title="icono preguntas" name="mdiquestion" class=" size-5 inline"/> Preguntas</a></li>
       <li class="w-full">
-        <a class="mobileNavBtn btn btn-ghost" href="/lugares"><Icon is:inline  title="icono lugares" name="mdipin" class=" size-5 inline"/>  Lugares</a>
-
+        <a class="mobileNavBtn btn btn-ghost" href={`${basePath}/lugares`}><Icon is:inline  title="icono lugares" name="mdipin" class=" size-5 inline"/>  Lugares</a>
       </li>
-      <li><a class="mobileNavBtn btn btn-ghost" href="/contacto"><Icon is:inline  title="icono contacto" name="mdicontact" class=" size-5 inline"/> Contacto</a></li>
+      <li><a class="mobileNavBtn btn btn-ghost" href={`${basePath}/contacto`}><Icon is:inline  title="icono contacto" name="mdicontact" class=" size-5 inline"/> Contacto</a></li>
     </ul>
   </nav>
 </aside>

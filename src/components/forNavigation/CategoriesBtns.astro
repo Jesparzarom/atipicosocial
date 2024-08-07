@@ -1,5 +1,8 @@
 ---
 import {upperCaseFirst} from "../../assets/js/stringManipulators";
+import { BASEPATH } from "../../assets/js/envir";
+
+const basePath = BASEPATH()
 
 interface Props {
   currentPage?: string;
@@ -19,7 +22,7 @@ const categorias = [
   class={`grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sticky top-0`}
 >
   <a
-    href={`/lugares/`}
+    href={`${basePath}/lugares/`}
     class={`col-span-3 md:col-auto category-btn btn  btn-xs md:btn-sm btn-ghost rounded-xl border-none
         hover:from-teal-300 hover:to-blue-300  bg-gradient-to-br shadow
         transition-all ease-in-out duration-500
@@ -30,7 +33,7 @@ const categorias = [
   {
     categorias.map((cat, index) => (
       <a
-        href={`/lugares/${cat.pagina}`}
+        href={`${basePath}/lugares/${cat.pagina}`}
         class={`category-btn btn btn-xs md:btn-sm btn-ghost rounded-xl border-none
         hover:from-teal-300 hover:to-blue-300   bg-gradient-to-br shadow
         transition-all ease-in-out duration-500

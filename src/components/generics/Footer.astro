@@ -1,5 +1,8 @@
 ---
 import Logo from "../generics/Logo.astro";
+import { BASEPATH } from "../../assets/js/envir";
+
+const basePath = BASEPATH();
 ---
 <footer class="text-base-content ">
     <div class="footer footer-center p-10 bg-blue-950 text-white">
@@ -23,10 +26,10 @@ import Logo from "../generics/Logo.astro";
         <!-- Links -->
         <nav>
             <div class="flex flex-wrap justify-center gap-y-2 gap-x-6 text-lg">
-                <a href="/sobre-atipico-social" class="link link-hover">Sobre Atípico Social</a>
-                <a href="/info" class="link link-hover">Aviso</a>
-                <a href="/lugares" class="link link-hover">Lugares</a>
-                <a href="/contacto" class="link link-hover">Contáctanos</a>
+                <a href={`${basePath}/sobre-atipico-social`} class="link link-hover">Sobre Atípico Social</a>
+                <a href={`${basePath}/info`} class="link link-hover">Aviso</a>
+                <a href={`${basePath}/lugares`} class="link link-hover">Lugares</a>
+                <a href={`${basePath}/contacto`} class="link link-hover">Contáctanos</a>
             </div>
         </nav>
     </div>
