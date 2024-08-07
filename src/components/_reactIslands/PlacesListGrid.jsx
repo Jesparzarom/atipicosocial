@@ -21,17 +21,19 @@ export default function PlacesGrid({ category = ""}) {
     const [places, setPlaces] = useState([]);
     const [tipos, setTipos] = useState([]);
     const [actividades, setActividades] = useState([]);
+    const [ciudades, setCiudades] = useState([]);
     const [caracteristicas, setCaracteristicas] = useState([]);
     /* FILTROS */
     const [categoria, setCategoria] = useState(category);
     const [tipo, setTipo] = useState(null);
     const [actividad, setActividad] = useState(null);
+    const [ciudad, setCiudad] = useState(null); 
     const [caracteristica, setCaracteristica] = useState(null);
 
 
     /* FUNCION PARA OBTENER DATOS */
     const fetchPlaces = async () => {
-        const url = queryConstructor({ nombre: "", categoria: categoria, tipo: tipo, actividades: actividad, caracteristicas: caracteristica });
+        const url = queryConstructor({ nombre: "", categoria: categoria, tipo: tipo, actividades: actividad, caracteristicas: caracteristica, ciudad:ciudad });
 
         try {
             setIsLoading(true);
@@ -47,6 +49,8 @@ export default function PlacesGrid({ category = ""}) {
             setTipos(result.tipos);
             setActividades(result.actividades);
             setCaracteristicas(result.caracteristicas);
+            setCiudades(result.ciudades);
+            console.log(url, "===>", ciudad, ciudades)
         } catch (err) {
             setError({ msg: err.message, status: err.status });
         } finally {
@@ -58,10 +62,10 @@ export default function PlacesGrid({ category = ""}) {
     /* FETCHING DE DATOS */
     useEffect(() => {
         fetchPlaces()
-    }, [categoria, tipo, actividad, caracteristica]);
+    }, [categoria, tipo, actividad, caracteristica, ciudad]);
 
     useEffect(() => {
-        const fadeUp = document.querySelectorAll(".fade-up");
+        const fadeUp = document.querySelectorAll(".fade-in");
         fadeUp.forEach(
             (el ) => {
                 inView(el, () => {
@@ -91,11 +95,17 @@ export default function PlacesGrid({ category = ""}) {
         setCaracteristica(caracteristica === c ? null : c);
     };
 
+    const handleCiudad = (cdd) => {
+        setError(null);
+        setCiudad(ciudad === cdd ? null : cdd);
+    };
+
     const resetFiltros = (e) => {
         e.preventDefault();
         setTipo(null);
         setActividad(null);
         setCaracteristica(null);
+        setCiudad(null)
         setError(null);
     };
 
@@ -113,7 +123,7 @@ export default function PlacesGrid({ category = ""}) {
     function Filter({filterName="", filterArray=[], filterSelected="", Skeleton=FilterSkeleton, handlerClick}){
         return(
             <div class="container">
-            <small class="text-xs text-slate-500 tracking-tighter relative -bottom-3 bg-slate-100 px-1 left-8 font-bold">{filterName}</small>
+            <small class="text-xs text-slate-500 tracking-tighter relative -bottom-3 bg-slate-100 px-1 left-8 font-bold">{filterName === "Ciudad" ? filterName + "es (AMBA)" : filterName}</small>
             <ul class="menu flex w-full rounded-box border gap-1 justify-start py-5">
                 {isFilterLoading ? (<Skeleton/>) : (
                     filterArray.map(($item$, index) => (
@@ -175,10 +185,11 @@ export default function PlacesGrid({ category = ""}) {
             </div>
                 <div class="">
                 <h4 class='text-2xl'>Filtrar por</h4>
-                {tipo || actividad || caracteristica ? <button class="link" onClick={resetFiltros}>Quitar filtros</button> : <span class="my-5 text-transparent">*</span>}
+                {tipo || actividad || caracteristica  || ciudad ? <button class="link" onClick={resetFiltros}>Quitar filtros</button> : <span class="my-5 text-transparent">*</span>}
                 <div class='flex flex-col gap-4'>
                     <Filter filterName="Tipo" filterArray={tipos} filterSelected={tipo} handlerClick={handleTipo} />
-                    <Filter filterName="Actividad" filterArray={actividades} filterSelected={actividad} handlerClick={handleActividad} />
+                    <Filter filterName="Ciudad" filterArray={ciudades} filterSelected={ciudad} handlerClick={handleCiudad} />
+                
                 </div>
                 </div>
             </aside>

@@ -1,9 +1,9 @@
 @import url("./customFontsStyles.css");
 
 * {
-    transition: all ease-in-out 0.3s;
-    scrollbar-gutter: stable;
-    scroll-behavior: smooth;
+  transition: all ease-in-out 0.3s;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -16,31 +16,37 @@ h3,
 h4,
 h5,
 h6 {
-    transition: all ease-in-out 0.5s;
-    font-family: 'Unbounded Variable', sans-serif;
-    font-weight: bold;
+  transition: all ease-in-out 0.5s;
+  font-family: 'Unbounded Variable', sans-serif;
+  font-weight: bold;
 }
 
 p {
-    transition: all ease-in-out 0.5s;
-    max-width: 75ch;
-    font-family: 'Inter Tight Variable', sans-serif;
+  transition: all ease-in-out 0.5s;
+  max-width: 75ch;
+  font-family: 'Inter Tight Variable', sans-serif;
 }
 
 
 
 .side-menu {
-    transition: left 0.3s ease; /* Transición suave al deslizarse desde la izquierda */
-  }
+  transition: left 0.3s ease;
+  /* Transición suave al deslizarse desde la izquierda */
+}
 
-  .close-menu {
-    left: -20rem;
-  }
+.close-menu {
+  left: -20rem;
+}
 
-  .side-menu.open {
-    left: 0; /* Muestra el menú deslizándose desde la izquierda */
-  }
+.side-menu.open {
+  left: 0;
+  /* Muestra el menú deslizándose desde la izquierda */
+}
 
-  .category-btn {
-    transition: all ease-in-out 5s !important;
-  }
+.category-btn {
+  transition: all ease-in-out 5s !important;
+}
+
+.fade-left {
+  opacity: 0;
+}

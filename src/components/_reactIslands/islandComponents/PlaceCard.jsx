@@ -1,4 +1,4 @@
-import { MdPlace, MdLocationCity, MdCheck, MdWhatsapp, MdMail, MdWeb, MdPhone, MdOutlineWidgets } from "react-icons/md"
+import { MdPlace, MdLocationCity, MdCheck, MdWhatsapp, MdMail, MdWeb, MdPhone, MdOutlineWidgets, MdFacebook } from "react-icons/md"
 import { TbWorld } from "react-icons/tb";
 import { IoLogoInstagram } from "react-icons/io"
 import { getWordFirstLetter } from "../../../assets/js/stringManipulators";
@@ -38,7 +38,8 @@ export default function PlaceCard(
         { title: "WhatsApp", icon: <MdWhatsapp class="text-xl text-neutral" />, href: contacto.whatsapp ? `https://web.whatsapp.com/send/?phone=${contacto.whatsapp}` : "" },
         { title: "Web", icon: <TbWorld class="text-xl" />, href: contacto.web ? `${contacto.web}` : "" },
         { title: "Instagram", icon: <IoLogoInstagram class="text-xl" />, href: contacto.instagram ? `${contacto.instagram}` : "" },
-        { title: "Mail", icon: <MdMail class="text-xl" />, href: contacto.email ? `mailto:${contacto.email}` : "" }
+        { title: "Mail", icon: <MdMail class="text-xl" />, href: contacto.email ? `mailto:${contacto.email}` : "" },
+        { title: "Face", icon: <MdFacebook class="text-xl" />, href: contacto.facebook ? `${contacto.facebook}` : "" },
     ]
 
     const imagePath = cardImg.path ? ( 
@@ -48,7 +49,7 @@ export default function PlaceCard(
     );
 
     return (
-        <article class="fade-up">
+        <article class="fade-in">
                 <div class=" inset-x-0 top-0  h-2 bg-gradient-to-l from-teal-300 via-blue-500 to-violet-600 rounded-t-lg shadow-lg"></div>
             <section
                 class=" bg-gradient-to-tr from-indigo-200 to-transparent  overflow-hidden rounded-b-lg  p-4 sm:p-6 lg:p-8 shadow"

@@ -22,7 +22,7 @@ import { Icon } from "astro-icon/components";
           <a href="/#"><Icon is:inline  title="icono inicio" name="mdihome" class="size-5 inline"/> Inicio</a>
         </li>
         <li>
-          <a href="/#atipico-social">
+          <a href="/sobre-atipico-social">
             <Icon is:inline  title="icono categorias" name="mdicategory" class="size-5 inline"/> Atípico Social</a
           >
         </li>
@@ -49,6 +49,9 @@ import { Icon } from "astro-icon/components";
       <Button path="/contacto" type="btn"  className="text-lg font-normal">
         <Icon is:inline  title="icono contacto" name="mdicontact" class="size-5 inline"/> Contacto
       </Button>
+      <Button path="/info" type="btn"  className="text-lg font-normal">
+        <Icon is:inline  title="icono contacto" name="mdinotification" class="size-5 inline"/> Aviso
+      </Button>
     </div>
 
   </section>
@@ -58,16 +61,11 @@ import { Icon } from "astro-icon/components";
   <nav class="p-4">
     <ul class="flex flex-col">
       <li><a class="w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/#"><Icon is:inline  title="icono inicio" name="mdihome" class=" size-5 inline"/> Inicio</a></li>
-      <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/#atipico-social"><Icon is:inline  title="icono categorias" name="mdicategory" class=" size-5 inline"/> Atípico Social</a></li>
+      <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/sobre-atipico-social"><Icon is:inline  title="icono categorias" name="mdicategory" class=" size-5 inline"/> Atípico Social</a></li>
       <li><a class="mobileNavBtn w-full btn btn-ghost active:bg-indigo-500 justify-start" href="/#preguntas-frecuentes"><Icon is:inline  title="icono preguntas" name="mdiquestion" class=" size-5 inline"/> Preguntas</a></li>
       <li class="w-full">
         <a class="mobileNavBtn btn btn-ghost" href="/lugares"><Icon is:inline  title="icono lugares" name="mdipin" class=" size-5 inline"/>  Lugares</a>
-        <div class="w-full text-left flex flex-col gap-1 ps-10">
-        <a class="w-full btn btn-sm btn-ghost justify-start active:bg-indigo-500 active:text-white" href="/lugares/">Todos</a>
-        <a class="w-full btn btn-sm btn-ghost justify-start active:bg-indigo-500 active:text-white" href="/lugares/recreativos">Recreativos</a>
-        <a class="w-full btn btn-sm btn-ghost justify-start active:bg-indigo-500 active:text-white" href="/lugares/entretenimiento">Entretenimiento</a>
-        <a class="w-full btn btn-sm btn-ghost justify-start active:bg-indigo-500 active:text-white" href="/lugares/servicios">Servicios</a>
-        </div>
+
       </li>
       <li><a class="mobileNavBtn btn btn-ghost" href="/contacto"><Icon is:inline  title="icono contacto" name="mdicontact" class=" size-5 inline"/> Contacto</a></li>
     </ul>

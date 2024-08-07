@@ -1,0 +1,12 @@
+---
+import PlacesGrid from "../../../components/_reactIslands/PlacesListGrid";
+import PlacesLayout from "../../../layouts/PlacesLayout.astro";
+---
+
+<PlacesLayout
+  title="Instituciones de educación especial"
+  bannerTitle="Centros de salud"
+  currentPage="centros de salud"
+>
+  <PlacesGrid client:load category="centro de salud" />
+</PlacesLayout>

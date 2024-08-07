@@ -1,7 +1,7 @@
 
-function queryConstructor(params = { nombre: "", categoria: "", localidad: "", tipo: "", actividades: "", caracteristicas: "" }) {
+function queryConstructor(params = { nombre: "", categoria: "", localidad: "", tipo: "", actividades: "", caracteristicas: "",  ciudad:"" }) {
 
-    const { nombre, categoria, localidad, tipo, actividades, caracteristicas } = params;
+    const { nombre, categoria, localidad, tipo, actividades, caracteristicas, ciudad } = params;
 
     const baseUrl = 'http://localhost:8000/api/v1/lugares/';
 
@@ -15,6 +15,7 @@ function queryConstructor(params = { nombre: "", categoria: "", localidad: "", t
     if (tipo) args.append("tipo", tipo);
     if  (caracteristicas) args.append("caracteristicas", caracteristicas);
     if (actividades) args.append("actividades", actividades);
+    if (ciudad) args.append("ciudad", ciudad);
 
     // Crear la URL completa con los parámetros
     const queryUrl = args.toString() ? `${baseUrl}?${args.toString()}` : baseUrl;

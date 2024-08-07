@@ -15,10 +15,14 @@ export function obtenerListas(places) {
     const tipos = places.flatMap(lugar => lugar["tipo"]);
     const tiposUnicos = [...new Set(tipos)];
 
+    const ciudades = places.flatMap(lugar => lugar["ciudad"]);
+    const ciudadesUnicas = [...new Set(ciudades)];
+
     return {
         actividades: actividadesUnicas,
         caracteristicas: caracteristicasUnicas,
         localidades: localidadesUnicas,
-        tipos: tiposUnicos
+        tipos: tiposUnicos,
+        ciudades: ciudadesUnicas
     };
 }

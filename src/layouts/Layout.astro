@@ -60,7 +60,7 @@ const { title } = Astro.props;
     import { inView, animate } from "motion";
     
     document.addEventListener("astro:page-load", () => {
-    const fadeAnim = document.querySelectorAll(".fade");
+    const fadeAnim = document.querySelectorAll(".fade-left");
         fadeAnim.forEach((el:any ) => {
         inView(el, () => {
             animate(el, {

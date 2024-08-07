@@ -10,16 +10,17 @@ const { currentPage } = Astro.props;
 const categorias = [
   { nombre: "recreativos", pagina: "recreativos" },
   { nombre: "entretenimiento", pagina: "entretenimiento" },
-  { nombre: "servicios", pagina: "servicios" },
+  { nombre: "educativos", pagina: "educativos" },
+  { nombre: "centros de salud", pagina: "centros" },
 ];
 ---
 
 <article
-  class={`grid  grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2 sticky top-0`}
+  class={`grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sticky top-0`}
 >
   <a
     href={`/lugares/`}
-    class={`category-btn btn  btn-xs md:btn-sm btn-ghost rounded-xl border-none
+    class={`col-span-3 md:col-auto category-btn btn  btn-xs md:btn-sm btn-ghost rounded-xl border-none
         hover:from-teal-300 hover:to-blue-300  bg-gradient-to-br shadow
         transition-all ease-in-out duration-500
          ${currentPage === "lugares" ? " from-teal-400 to-blue-400" : " from-indigo-400 to-blue-400"} `}
