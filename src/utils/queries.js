@@ -2,8 +2,8 @@
 function queryConstructor(params = { nombre: "", categoria: "", localidad: "", tipo: "", actividades: "", caracteristicas: "",  ciudad:"" }) {
 
     const { nombre, categoria, localidad, tipo, actividades, caracteristicas, ciudad } = params;
-
-    const baseUrl = 'https://atipicosocialapi.onrender.com/api/v1/lugares/';
+  
+    const baseUrl = 'https://atipicosocialapi.vercel.app/api/v1/lugares/';
 
     // Crear una instancia de URLSearchParams
     const args = new URLSearchParams();
